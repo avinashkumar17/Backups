@@ -1,0 +1,16 @@
+<div class="main-content" >
+  <div class="container-fluid" style="text-align: center;">
+    <div class="col-md-8" style="display: inline-block;">
+      <div class="card card-profile">
+          <div class="card-body">
+            <canvas baseChart
+            [data]="pieChartData"
+            [labels]="pieChartLabels"
+            [chartType]="pieChartType"
+            [options]="pieChartOptions"
+            (chartHover)="chartHovered($event)"
+            (chartClick)="chartClicked($event)"></canvas>
+          </div>
+      </div>
+  </div>
+</div>
