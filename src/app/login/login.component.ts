@@ -18,6 +18,7 @@ export class LoginComponent implements OnInit {
   }
   login(){
     this.appService.login().subscribe(res=>{
+      console.log(res.status);
       if(res.status == 200){
         localStorage.setItem('sessionId',res.body);
         this.route.navigate(['/dashboard']);
