@@ -4,7 +4,7 @@ import { BrowserModule  } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
-
+import { AuthGuardService} from '../auth-guard.service';
 const routes: Routes =[
   
   {
@@ -15,6 +15,7 @@ const routes: Routes =[
   {
     path:'login',
     component:LoginComponent,
+    canActivate:[AuthGuardService]
   },
   {
     path: '',
