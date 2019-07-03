@@ -12,9 +12,15 @@ export class AuthGuardService implements CanActivate{
 
   canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
     console.log("local storage :"+localStorage.getItem('sessionId'));
-    if(localStorage.getItem('sessionId') != null){
-      return  true;
+    if(localStorage.getItem('sessionId') != null && next.routeConfig.path =='login'){
+      this.router.navigate(['/dashboard']);
+      return  false;
+    }else if(localStorage.getItem('sessionId') != null && next.routeConfig.path != 'login'){
+      return true;
+    }else if(localStorage.getItem('sessionId') == null && next.routeConfig.path == 'login'){
+      return true;
     }
+    
     // navigate to login page
     this.router.navigate(['/login']);
     // you can save redirect url so after authing we can move them back to the page they requested
