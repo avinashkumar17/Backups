@@ -19,7 +19,7 @@ import { MapsComponent } from './maps/maps.component';
 import { AppServiceService} from '../app-service.service';
 
 import { AngularFireModule} from '@angular/fire';
-
+import { NG_VALIDATORS, Validator, ValidationErrors, FormGroup } from '@angular/forms';
 
 
 import {
@@ -35,6 +35,8 @@ import {
   MatTooltipModule,
   MatSelectModule
 } from '@angular/material';
+import { RegisterComponent } from './register/register.component';
+import { CustomValidatorDirective } from './custom-validator.directive';
 @NgModule({
   imports: [
     BrowserAnimationsModule,
@@ -57,10 +59,13 @@ import {
     AppComponent,
     AdminLayoutComponent,
     LoginComponent,
+    RegisterComponent,
+    CustomValidatorDirective,
 
   ],
   providers: [
     AppServiceService
+    
   ],
   bootstrap: [AppComponent]
 })
